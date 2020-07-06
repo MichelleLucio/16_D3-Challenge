@@ -69,7 +69,6 @@ function renderYAxis(newYScale, yAxis) {
 function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
     circlesGroup.transition()
       .duration(1000)
-      //.attr('transform', d => `translate(${newXScale(d[chosenXAxis])}, ${newYScale(d[chosenYAxis])})`);
       .attr("cx", d => newXScale(d[chosenXAxis]))
       .attr("cy", d => newYScale(d[chosenYAxis]))
       return circlesGroup;
@@ -159,25 +158,14 @@ d3.csv("data.csv").then(function(censusData, err) {
   
     // append initial circles
     var circlesGroup = chartGroup.selectAll(".stateCircle")
-      // .append("g")
-      // .selectAll("circle")
       .data(censusData)
       .enter()
-      // .append("g")
       .append("circle")
-      // .classed("circle", true)
-      //.attr('transform', d => `translate(${xLinearScale(d[chosenXAxis])}, ${yLinearScale(d[chosenYAxis])})`);
       .attr("cx", d => xLinearScale(d[chosenXAxis]))
       .attr("cy", d => yLinearScale(d[chosenYAxis]))
       .attr("class", "stateCircle")
       .attr("r", 15)
       .attr("opacity", ".7");
-
-      // circlesGroup
-      //   .append("circle")
-      //   .attr("r", 10)
-      //   .attr("fill", "purple")
-      //   .attr("opacity", ".6");
 
       let textGroup = chartGroup.selectAll(".stateText")
         .data(censusData)
@@ -190,13 +178,6 @@ d3.csv("data.csv").then(function(censusData, err) {
         .attr("font-size", "15px")
         .attr("fill", "black");
 
-    // let circleText = chartGroup
-    //   .append('text')
-    //   .classed('circleText', true)
-    //   .attr('dy', '0.35em')
-    //   .attr('dx', -6)
-    //   .text(d => d.abbr);
-  
     // Create group for x-axis & y-axis labels
     let xlabelsGroup = chartGroup.append("g")
       .attr("transform", `translate(${width / 2}, ${height + 20})`);
@@ -205,8 +186,7 @@ d3.csv("data.csv").then(function(censusData, err) {
       .attr("transform", `rotate(-90 ${(margin.left/2)} ${(height/2)-60})`)
       .attr("dy", "1em")
       .classed("axis-text", true);
-      //.attr("transform", `translate(${height / 2}, ${width + 10})`);
-
+  
 // append x axis
     let povertyLabel = xlabelsGroup.append("text")
       .attr("x", 0)
@@ -264,8 +244,7 @@ d3.csv("data.csv").then(function(censusData, err) {
         if (value !== chosenXAxis) {
             // replaces chosenXAxis with value
           chosenXAxis = value;
-          console.log(chosenXAxis)
-            // functions here found above csv import
+          // console.log(chosenXAxis)
           // updates x scale for new data
           xLinearScale = xScale(censusData, chosenXAxis);
             // updates x axis with transition
@@ -321,8 +300,7 @@ d3.csv("data.csv").then(function(censusData, err) {
     if (value !== chosenYAxis) {
         // replaces chosenYAxis with value
       chosenYAxis = value;
-      console.log(chosenYAxis)
-        // functions here found above csv import
+      // console.log(chosenYAxis)
       // updates y scale for new data
       yLinearScale = yScale(censusData, chosenYAxis);
         // updates y axis with transition
