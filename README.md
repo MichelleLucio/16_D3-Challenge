@@ -2,6 +2,12 @@
 
 ![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
 
+- - -
+
+## Website: https://michellelucio.github.io/16_D3-Challenge/ 
+
+- - -
+
 ## Background
 
 Welcome to the newsroom! You've just accepted a data visualization position for a major metro paper. You're tasked with analyzing the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings.
@@ -40,8 +46,3 @@ You're going to include more demographics and more risk factors. Place additiona
 
 While the ticks on the axes allow us to infer approximate values for each circle, it's impossible to determine the true value without adding another layer of data. Enter tooltips: developers can implement these in their D3 graphics to reveal a specific element's data when the user hovers their cursor over the element. Add tooltips to your circles and display each tooltip with the data that the user has selected. Use the `d3-tip.js` plugin developed by [Justin Palmer](https://github.com/Caged)—we've already included this plugin in your assignment directory.
 
-- - -
-
-### Assessment
-
-Final product: https://michellelucio.github.io/16_D3-Challenge/ 
